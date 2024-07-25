@@ -33,6 +33,13 @@
         padding: 0;
         line-height: 1.8;
         scroll-behavior: smooth;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      body.light-mode {
+        --background-color: #f0f0f0;
+        --text-color: #333333;
+        --secondary-bg-color: rgba(0, 0, 0, 0.08);
       }
 
       .container {
@@ -53,6 +60,11 @@
         top: 0;
         left: 0;
         z-index: 1000;
+        transition: background-color 0.3s;
+      }
+
+      .light-mode nav {
+        background-color: rgba(240, 240, 240, 0.9);
       }
 
       nav a {
@@ -90,6 +102,11 @@
         object-fit: cover;
         border: 3px solid var(--primary-color);
         box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        transition: transform 0.3s;
+      }
+
+      .profile-image:hover {
+        transform: scale(1.1) rotate(5deg);
       }
 
       .landing h1 {
@@ -102,6 +119,19 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        animation: gradientAnimation 5s ease infinite;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       .landing p {
@@ -136,6 +166,12 @@
         background-color: var(--secondary-bg-color);
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
       }
 
       .section h2 {
@@ -225,6 +261,30 @@
       .project a:hover {
         text-decoration: underline;
       }
+
+      .theme-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .light-mode .theme-toggle {
+        background-color: #333333;
+      }
     </style>
   </head>
   <body>
@@ -234,6 +294,7 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
+
         <a
           href="https://docs.google.com/document/d/1BtrRQPjBlcTTB40lEtykhFNXVi6ItXGi/edit?usp=sharing&ouid=117954607320712449895&rtpof=true&sd=true"
           >Resume</a
@@ -361,9 +422,7 @@
           <li>MySQL</li>
           <li>Machine Learning</li>
           <li>Data Analysis</li>
-          <li>NLP</li>
-          <li>Image Processing</li>
-          <li>Agile Methodologies</li>
+          <li>Predictive Modeling</li>
         </ul>
       </section>
     </div>
@@ -374,6 +433,10 @@
       </p>
     </footer>
 
+    <button class="theme-toggle" aria-label="Toggle dark/light mode">
+      <i class="fas fa-moon"></i>
+    </button>
+
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -382,6 +445,72 @@
             behavior: "smooth",
           });
         });
+      });
+
+      const themeToggle = document.querySelector(".theme-toggle");
+      const body = document.body;
+      const icon = themeToggle.querySelector("i");
+
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        if (body.classList.contains("light-mode")) {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      });
+
+      const sections = document.querySelectorAll(".section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      sections.forEach((section) => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(20px)";
+        section.style.transition = "opacity 0.5s, transform 0.5s";
+        observer.observe(section);
+      });
+
+      const description = document.querySelector(".landing p:nth-child(3)");
+      const text = description.textContent;
+      description.textContent = "";
+
+      let i = 0;
+      function typeWriter() {
+        if (i < text.length) {
+          description.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 50);
+        }
+      }
+
+      window.addEventListener("load", typeWriter);
+
+      const skillItems = document.querySelectorAll(".skills li");
+      skillItems.forEach((item) => {
+        item.addEventListener("mouseover", () => {
+          item.style.transform = "scale(1.1) rotate(5deg)";
+        });
+        item.addEventListener("mouseout", () => {
+          item.style.transform = "scale(1) rotate(0deg)";
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        const landing = document.querySelector(".landing");
+        const scrollPosition = window.pageYOffset;
+        landing.style.backgroundPositionY = scrollPosition * 0.5 + "px";
       });
     </script>
   </body>
