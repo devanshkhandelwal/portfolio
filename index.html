@@ -168,6 +168,43 @@
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       }
+      .skills {
+        padding: 80px 20px;
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        transition: var(--transition);
+        text-align: center;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+      .skills-item {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 8px;
+        transition: var(--transition);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .skills-item h3 {
+        margin: 0 0 15px;
+        font-size: 1.5em;
+      }
+      .skills-item p {
+        font-size: 1em;
+        color: var(--text-color);
+        margin-bottom: 20px;
+      }
+      .skills-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
       footer {
         text-align: center;
         padding: 20px 0;
@@ -275,6 +312,9 @@
             Full-Stack Developer, Data Scientist & Tech Innovator
           </p>
           <p>
+            Pursuing BS Computer Science & Data Science at Purdue University.
+          </p>
+          <p>
             Goal: Building innovative software solutions to solve real-world
             problems.
           </p>
@@ -335,7 +375,35 @@
           <div class="project" tabindex="0">
             <h3>Video Game Marketplace</h3>
             <p>Led a team to develop a Java-based video game marketplace.</p>
-            <a href="" target="_blank" class="btn">Private</a>
+            <a href="" target="_blank" class="btn" onclick="return false;"
+              >Private</a
+            >
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skills-item" tabindex="0">
+            <h3>Programming Languages</h3>
+            <p>Java, Python, C, C++, JavaScript, R</p>
+          </div>
+          <div class="skills-item" tabindex="0">
+            <h3>Web Development</h3>
+            <p>
+              HTML/CSS, JavaScript, React.js, Node.js, jQuery, Express.js, React
+              Native
+            </p>
+          </div>
+          <div class="skills-item" tabindex="0">
+            <h3>Databases</h3>
+            <p>PostgreSQL, MongoDB, MySQL</p>
+          </div>
+          <div class="skills-item" tabindex="0">
+            <h3>Machine Learning & AI</h3>
+            <p>
+              KNN, Web Scraping, NLP, Image Processing, Predictive Modelling
+            </p>
           </div>
         </div>
       </section>
