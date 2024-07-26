@@ -5,513 +5,343 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Devansh Khandelwal - Full-Stack Developer & Data Scientist Portfolio"
+      content="Devansh Khandelwal - Full-Stack Developer, Data Scientist & Tech Innovator Portfolio"
     />
+    <meta
+      name="keywords"
+      content="Devansh Khandelwal, Full-Stack Developer, Data Scientist, Tech Innovator, Portfolio, Web Developer, Software Engineer, Purdue University"
+    />
+    <meta name="author" content="Devansh Khandelwal" />
     <title>Devansh Khandelwal | Portfolio</title>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
-      rel="stylesheet"
+    <meta property="og:title" content="Devansh Khandelwal | Portfolio" />
+    <meta
+      property="og:description"
+      content="Full-Stack Developer, Data Scientist & Tech Innovator Portfolio"
     />
+    <meta property="og:image" content="https://example.com/image.jpg" />
+    <meta property="og:url" content="https://example.com" />
     <style>
       :root {
-        --primary-color: #4a90e2;
-        --background-color: #1e1e1e;
-        --text-color: #ffffff;
-        --secondary-bg-color: rgba(255, 255, 255, 0.08);
+        --primary-color: #ffffff;
+        --background-color: #0a192f;
+        --accent-color: #64ffda;
+        --text-color: #8892b0;
+        --transition: all 0.3s ease;
       }
-
       body {
-        background-color: var(--background-color);
-        background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-        color: var(--text-color);
-        font-family: "Poppins", sans-serif;
         margin: 0;
-        padding: 0;
-        line-height: 1.8;
-        scroll-behavior: smooth;
-        transition: background-color 0.3s, color 0.3s;
-      }
-
-      body.light-mode {
-        --background-color: #f0f0f0;
-        --text-color: #333333;
-        --secondary-bg-color: rgba(0, 0, 0, 0.08);
-      }
-
-      .container {
-        width: 85%;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 0;
-        background-color: rgba(30, 30, 30, 0.9);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        transition: background-color 0.3s;
-      }
-
-      .light-mode nav {
-        background-color: rgba(240, 240, 240, 0.9);
-      }
-
-      nav a {
-        color: var(--text-color);
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: 500;
-        transition: color 0.3s;
-        font-size: 1.1em;
-      }
-
-      nav a:hover {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
         color: var(--primary-color);
+        transition: var(--transition);
+        line-height: 1.6;
       }
-
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--accent-color);
+        color: var(--background-color);
+        padding: 8px;
+        z-index: 100;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
       .landing {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+      }
+      .content {
+        max-width: 800px;
+      }
+      h1,
+      h2 {
+        font-size: 3.5em;
+        margin: 0 0 20px;
+        animation: slideIn 1s ease-out;
+      }
+      h2 {
+        font-size: 2.5em;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .subtitle {
+        color: var(--accent-color);
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        animation: fadeIn 1.5s ease-out;
+      }
+      p {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+        animation: fadeIn 2s ease-out;
+        color: var(--text-color);
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        animation: fadeIn 2.5s ease-out;
+      }
+      .btn {
+        text-decoration: none;
+        color: var(--accent-color);
+        border: 1px solid var(--accent-color);
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: var(--transition);
         position: relative;
+        overflow: hidden;
+      }
+      .btn:hover,
+      .btn:focus {
+        background-color: rgba(100, 255, 218, 0.1);
+        outline: none;
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(100, 255, 218, 0.4),
+          transparent
+        );
+        transition: var(--transition);
+      }
+      .btn:hover::before {
+        left: 100%;
+      }
+      .projects {
+        padding: 80px 20px;
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        transition: var(--transition);
+        text-align: center;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+      .project {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 8px;
+        transition: var(--transition);
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        min-height: 100vh;
         text-align: center;
-        padding: 80px 20px 20px;
-        background: none;
       }
-
-      .profile-image {
-        position: absolute;
-        top: 100px;
-        right: 20px;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid var(--primary-color);
-        box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
-        transition: transform 0.3s;
-      }
-
-      .profile-image:hover {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .landing h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 4.5em;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        background: linear-gradient(45deg, #4a90e2, #63b3ed);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-        animation: gradientAnimation 5s ease infinite;
-      }
-
-      @keyframes gradientAnimation {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .landing p {
-        font-size: 1.3em;
-        margin-bottom: 20px;
-        opacity: 0.9;
-        max-width: 600px;
-        font-weight: 300;
-      }
-
-      .icons {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-      }
-
-      .icons a {
-        color: var(--text-color);
-        text-decoration: none;
-        transition: transform 0.3s, color 0.3s;
+      .project h3 {
+        margin: 0 0 15px;
         font-size: 1.5em;
       }
-
-      .icons a:hover {
-        transform: translateY(-5px);
-        color: var(--primary-color);
+      .project p {
+        font-size: 1em;
+        color: var(--text-color);
+        margin-bottom: 20px;
       }
-
-      .section {
-        margin: 60px 0;
-        padding: 30px;
-        background-color: var(--secondary-bg-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
+      .project .btn {
+        margin-top: auto;
       }
-
-      .section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .section h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 2.7em;
-        margin-bottom: 25px;
-        text-align: left;
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--primary-color);
-        padding-bottom: 10px;
-      }
-
-      .experience-container,
-      .projects-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-      }
-
-      .experience-item,
-      .project {
-        background-color: rgba(255, 255, 255, 0.08);
-        padding: 20px;
-        border-radius: 8px;
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-
-      .experience-item:hover,
       .project:hover {
         transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       }
-
-      .experience-item h3,
-      .project h3 {
-        font-size: 1.6em;
-        margin-bottom: 10px;
-        color: var(--text-color);
-        font-weight: 600;
-      }
-
-      .experience-item p,
-      .project p {
-        font-size: 1.05em;
-        line-height: 1.6;
-        opacity: 0.95;
-      }
-
-      .skills ul {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .skills li {
-        padding: 8px 16px;
-        background-color: rgba(255, 255, 255, 0.12);
-        color: var(--text-color);
-        border-radius: 5px;
-        font-weight: 500;
-        font-size: 0.95em;
-        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-      }
-
-      .skills li:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
-        background-color: var(--primary-color);
-      }
-
       footer {
         text-align: center;
         padding: 20px 0;
-        border-top: 1px solid var(--secondary-bg-color);
-        font-size: 0.95em;
+        color: var(--text-color);
       }
-
-      .project a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-
-      .project a:hover {
-        text-decoration: underline;
-      }
-
-      .theme-toggle {
+      .background-shapes {
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: var(--primary-color);
-        color: #ffffff;
-        border: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+      }
+      .shape {
+        position: absolute;
+        background-color: var(--accent-color);
         border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+      .shape:nth-child(1) {
         width: 50px;
         height: 50px;
-        font-size: 1.5em;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-        z-index: 1000;
+        top: 10%;
+        left: 10%;
       }
-
-      .theme-toggle:hover {
-        transform: scale(1.1);
+      .shape:nth-child(2) {
+        width: 70px;
+        height: 70px;
+        top: 20%;
+        right: 20%;
+        animation-delay: -2s;
       }
-
-      .light-mode .theme-toggle {
-        background-color: #333333;
+      .shape:nth-child(3) {
+        width: 40px;
+        height: 40px;
+        bottom: 30%;
+        left: 50%;
+        animation-delay: -4s;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5em;
+        }
+        h2 {
+          font-size: 2em;
+        }
+        .subtitle {
+          font-size: 1.2em;
+        }
+        p {
+          font-size: 1em;
+        }
+        .buttons {
+          flex-direction: column;
+        }
+        .btn {
+          width: 100%;
+          margin-bottom: 10px;
+        }
       }
     </style>
   </head>
   <body>
-    <nav>
-      <div class="container">
-        <a href="#landing">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-
-        <a
-          href="https://docs.google.com/document/d/1BtrRQPjBlcTTB40lEtykhFNXVi6ItXGi/edit?usp=sharing&ouid=117954607320712449895&rtpof=true&sd=true"
-          >Resume</a
-        >
-      </div>
-    </nav>
-
-    <div class="container">
-      <section id="landing" class="landing">
-        <img src="profile.jpg" alt="Devansh Khandelwal" class="profile-image" />
-        <h1>Devansh Khandelwal</h1>
-        <p>Full-Stack Developer | Data Scientist | Tech Enthusiast</p>
-        <p>
-          I am a Sophomore at Purdue University, passionate about providing
-          scalable solutions through software. Let's connect and create
-          something impactful together.
-        </p>
-        <div class="icons">
-          <a
-            href="https://www.linkedin.com/in/devansh-khandelwal-31b131213/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:khanded@purdue.edu" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a
-            href="https://github.com/devanshkhandelwal"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <div class="background-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <main id="main">
+      <section class="landing">
+        <div class="content">
+          <h1>Hi, I'm Devansh Khandelwal</h1>
+          <p class="subtitle">
+            Full-Stack Developer, Data Scientist & Tech Innovator
+          </p>
+          <p>
+            Goal: Building innovative software solutions to solve real-world
+            problems.
+          </p>
+          <div class="buttons">
+            <a href="#projects" class="btn">Projects</a>
+            <a
+              href="https://github.com/devanshkhandelwal"
+              target="_blank"
+              class="btn"
+              >GitHub</a
+            >
+            <a href="mailto:khanded@purdue.edu" class="btn">Email</a>
+            <a
+              href="https://www.linkedin.com/in/devanshkhandelwal/"
+              target="_blank"
+              class="btn"
+              >LinkedIn</a
+            >
+            <a
+              href="https://docs.google.com/document/d/1BtrRQPjBlcTTB40lEtykhFNXVi6ItXGi/edit?usp=sharing&ouid=117954607320712449895&rtpof=true&sd=true"
+              target="_blank"
+              class="btn"
+              >Resume</a
+            >
+          </div>
         </div>
       </section>
-
-      <section id="projects" class="projects section">
-        <h2>Projects</h2>
-        <div class="projects-container">
-          <div class="project">
+      <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+          <div class="project" tabindex="0">
+            <h3>FootballTactix</h3>
+            <p>
+              A React Native app for real-time football match analysis and
+              discussions. Provides a dedicated platform for users to share
+              tactical insights during and after matches.
+            </p>
+            <a
+              href="https://youtu.be/273eSvOwpKk?si=Lu3vOtUKPKlThl3Z"
+              target="_blank"
+              class="btn"
+              >Coming Soon!</a
+            >
+          </div>
+          <div class="project" tabindex="0">
             <h3>SoccerScribe</h3>
             <p>
-              A comprehensive soccer match analysis platform built with Node.js,
+              A web app for personal soccer match analysis using Node.js,
               Express.js, and PostgreSQL.
             </p>
-            <p>
-              <a href="https://soccerscribe.onrender.com/" target="_blank"
-                >Website</a
-              >
-              |
-              <a
-                href="https://github.com/devanshkhandelwal/soccerscribe"
-                target="_blank"
-                >GitHub Repo</a
-              >
-            </p>
+            <a
+              href="https://github.com/devanshkhandelwal/soccerscribe"
+              target="_blank"
+              class="btn"
+              >View Project</a
+            >
           </div>
-          <div class="project">
+          <div class="project" tabindex="0">
             <h3>Video Game Marketplace</h3>
-            <p>
-              A Java-based marketplace for video games, featuring a Swing GUI
-              and robust backend. Implemented multi-threading, client-server
-              architecture, and comprehensive analytics.
-            </p>
+            <p>Led a team to develop a Java-based video game marketplace.</p>
+            <a href="" target="_blank" class="btn">Private</a>
           </div>
         </div>
       </section>
-
-      <section id="experience" class="experience section">
-        <h2>Experience</h2>
-        <div class="experience-container">
-          <div class="experience-item">
-            <h3>The Data Mine, Purdue University</h3>
-            <p>Scrum Master and Project Lead | Aug 2024 - May 2025</p>
-            <p>
-              Overseeing project management and facilitating collaboration
-              between students and industry partners.
-            </p>
-          </div>
-          <div class="experience-item">
-            <h3>Maruti Suzuki India Limited</h3>
-            <p>Machine Learning & Data Science Intern | May 2024 - July 2024</p>
-            <p>
-              Developed and implemented machine learning models for nationwide
-              demand forecasting of car models.
-            </p>
-          </div>
-          <div class="experience-item">
-            <h3>Cisco</h3>
-            <p>Undergraduate Researcher | January - May 2024</p>
-            <p>
-              Engineered advanced demand forecasting models and collaborated on
-              defining key performance indicators.
-            </p>
-          </div>
-          <div class="experience-item">
-            <h3>Neutron</h3>
-            <p>Software Engineering Intern | June - September 2022</p>
-            <p>
-              Contributed to full-stack development, optimizing web application
-              components and database management modules.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="skills section">
-        <h2>Skills</h2>
-        <ul>
-          <li>Java</li>
-          <li>Python</li>
-          <li>C</li>
-          <li>C++</li>
-          <li>JavaScript</li>
-          <li>R</li>
-          <li>HTML/CSS</li>
-          <li>React.js</li>
-          <li>Node.js</li>
-          <li>Express.js</li>
-          <li>React Native</li>
-          <li>PostgreSQL</li>
-          <li>MongoDB</li>
-          <li>MySQL</li>
-          <li>Machine Learning</li>
-          <li>Data Analysis</li>
-          <li>Predictive Modeling</li>
-        </ul>
-      </section>
-    </div>
-
+    </main>
     <footer>
-      <p>
-        &copy; 2024 Devansh Khandelwal | Full-Stack Developer & Data Scientist
-      </p>
+      <p>&copy; 2024 Devansh Khandelwal. All rights reserved.</p>
     </footer>
-
-    <button class="theme-toggle" aria-label="Toggle dark/light mode">
-      <i class="fas fa-moon"></i>
-    </button>
-
-    <script>
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-
-      const themeToggle = document.querySelector(".theme-toggle");
-      const body = document.body;
-      const icon = themeToggle.querySelector("i");
-
-      themeToggle.addEventListener("click", () => {
-        body.classList.toggle("light-mode");
-        if (body.classList.contains("light-mode")) {
-          icon.classList.remove("fa-moon");
-          icon.classList.add("fa-sun");
-        } else {
-          icon.classList.remove("fa-sun");
-          icon.classList.add("fa-moon");
-        }
-      });
-
-      const sections = document.querySelectorAll(".section");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = 1;
-              entry.target.style.transform = "translateY(0)";
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      sections.forEach((section) => {
-        section.style.opacity = 0;
-        section.style.transform = "translateY(20px)";
-        section.style.transition = "opacity 0.5s, transform 0.5s";
-        observer.observe(section);
-      });
-
-      const description = document.querySelector(".landing p:nth-child(3)");
-      const text = description.textContent;
-      description.textContent = "";
-
-      let i = 0;
-      function typeWriter() {
-        if (i < text.length) {
-          description.textContent += text.charAt(i);
-          i++;
-          setTimeout(typeWriter, 50);
-        }
-      }
-
-      window.addEventListener("load", typeWriter);
-
-      const skillItems = document.querySelectorAll(".skills li");
-      skillItems.forEach((item) => {
-        item.addEventListener("mouseover", () => {
-          item.style.transform = "scale(1.1) rotate(5deg)";
-        });
-        item.addEventListener("mouseout", () => {
-          item.style.transform = "scale(1) rotate(0deg)";
-        });
-      });
-
-      window.addEventListener("scroll", () => {
-        const landing = document.querySelector(".landing");
-        const scrollPosition = window.pageYOffset;
-        landing.style.backgroundPositionY = scrollPosition * 0.5 + "px";
-      });
-    </script>
   </body>
 </html>
